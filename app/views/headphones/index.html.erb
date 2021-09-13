@@ -1,0 +1,19 @@
+
+<h1 class="current-category"><%= params[:category] %></h1>
+
+<% if @headphones.count == 0 %>
+    <h1>There are no headphones</h1>
+<% else %>
+    <hr>
+    <div class="row">
+        <% @headphones.each do |headphone| %>
+            <div class="col-md-3">
+                <a href="/headphones/<%= headphone.id %>">
+                    <%= image_tag headphone.image, class: "headphone" %>
+                </a>
+            </div>
+        <% end %>
+    </div>
+<% end %>
+
+

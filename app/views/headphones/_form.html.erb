@@ -1,0 +1,11 @@
+<%= simple_form_for @headphone, :html => { :multipart => true } do |f| %>
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+  <%= f.input :model, label: 'Model Name', error: 'Please specify one'%>
+  <%= f.input :description, label: 'Description', error: 'Please specify one'%>
+  <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select a category") %>
+  <%= f.input :brand, label: 'Brand Name', error: 'Please specify one'%>
+  <%= f.input :price, label: 'Price', error: 'Please specify one'%>
+  <%= f.input :rent, label: 'Rent/Hr', error: 'Please specify one'%>
+  <%= f.button :submit %>
+<% end %>

@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-md-4">
+        <%= image_tag @headphone.image,  class: "headphone" %>
+    </div>
+    
+    <div class="col-md-8">
+        <h1><b><%= @headphone.model %></b></h1>
+        <hr>
+        <h4><%= @headphone.description %></h4>
+        <hr>
+        <h4><b>Category: </b><%= @headphone.category.name %></h4>
+        <h4><b>Brand: </b><%= @headphone.brand %></h4>
+        <h4><b>Price: </b>$<%= @headphone.price %></h4>
+        <h4><b>Rent/Hr: </b>$<%= @headphone.rent %></h4>
+    </div>
+    
+</div>
+
+<%= link_to "Back", root_path %>
+
+<% if user_signed_in? %>
+
+    <% if @headphone.user_id == current_user.id %>
+        <%= link_to "Edit", edit_headphone_path(@headphone) %>
+        <%= link_to "Delete", headphone_path(@headphone), method: :delete, data: { confirm: "Are you sure?"} %>
+    <% end %>
+
+<% end %>
